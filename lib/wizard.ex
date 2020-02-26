@@ -2,44 +2,46 @@ defmodule Wizard do
   @moduledoc """
   Main API for Wizard applicatoin.
   """
+
   @doc """
   Create a new Wizard game.
+
+  ## Examples
+
+      iex> game = Wizard.new_game(3)
+      :ok
   """
-  def new_game()
+  def new_game(number) do
+    :ok
+  end
 
   @doc """
-  Returns the hand cards of the player.
+  Make a move for the current player.
   """
-  def show_cards(game, player)
+  def action(game, action)
 
   @doc """
-  If it's players turn: lay selected card to middle.
-  Else return error.
+  Returns all legal moves.
   """
-  def lay_card(game, player, card)
+  def get_actions(game)
 
   @doc """
-
+  Returns the hand cards of the given player.
   """
-  def set_trick(game, player)
+  def get_player_cards(game, player)
 
   @doc """
-  Returns cards in the last trick.
+  Returns the last trick of the game.
   """
-  def show_last_trick(game)
+  def get_last_trick(game)
 
   @doc """
-  Returns all legal moves for the player.
+  Returns the current player.
   """
-  def get_options(game, player)
+  def get_current_player(game)
 
   @doc """
-  Returns the whole score board.
+  Returns the score of the game.
   """
   def get_score(game)
-
-  @doc """
-  Retruns current trump color.
-  """
-  def get_trump(game)
 end
