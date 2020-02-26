@@ -18,30 +18,42 @@ defmodule Wizard do
   @doc """
   Make a move for the current player.
   """
-  def action(game, action)
+  def action(game, action) do
+    nil
+  end
 
   @doc """
   Returns all legal moves.
   """
-  def get_actions(game)
+  def get_actions(game) do
+    nil
+  end
 
   @doc """
   Returns the hand cards of the given player.
   """
-  def get_player_cards(game, player)
+  def get_player_cards(game, player) do
+    nil
+  end
 
   @doc """
   Returns the last trick of the game.
   """
-  def get_last_trick(game)
+  def get_last_trick(game) do 
+    nil
+  end
 
   @doc """
   Returns the current player.
   """
-  def get_current_player(game)
+  def get_current_player(game) do
+    nil
+  end
 
   @doc """
   Returns the score of the game.
   """
-  def get_score(game)
+  def get_score(game) do
+    nil
+  end
 end

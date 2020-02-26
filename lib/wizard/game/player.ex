@@ -28,5 +28,11 @@ defmodule Wizard.Game.Player do
     }
   end
 
-  def get_score(%Player{score: [score | _rest]), do: score
+  def end_turn(player) do
+    case player.state do
+      :turn -> %Player{player | state: :waiting}
+      :waiting -> player
+      _ -> raise "unkown state"
+    end
+  end
 end

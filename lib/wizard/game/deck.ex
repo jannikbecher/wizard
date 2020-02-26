@@ -1,12 +1,14 @@
 defmodule Wizard.Game.Deck do
+  @moduledoc false
+
   alias __MODULE__
-  alias Wizard.Game.Deck.Card
+  alias Wizard.Game.Card
 
   @colors [:red, :green, :blue, :yellow]
 
   def new() do
     create_normal_cards ++ create_wizard_cards ++ create_fool_cards
-    |> Enum.random
+    |> Enum.shuffle
   end
 
   defp create_normal_cards do
@@ -23,23 +25,7 @@ defmodule Wizard.Game.Deck do
 
   defp create_fool_cards do
     for _ <- 1..4 do
-      %Card(type: :fool, value: nil, color: nil}
+      %Card{type: :fool, value: nil, color: nil}
     end
   end
-end
-
-defmodule Wizard.Game.Deck.Card do
-  alias __MODULE__
-
-  defstruct(
-    type: :normal,
-    value: 0,
-    color: nil
-  )
-
-  @type t :: %Card{
-    type: :normal | :fool | :wizard,
-    value: 0..13 | nil,
-    color: :red | :green | :blue | :yellow | nil
-  }
 end

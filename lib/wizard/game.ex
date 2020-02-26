@@ -11,16 +11,16 @@ defmodule Wizard.Game do
     number_players: 0,
     round: 0,
     current_trump: nil,
-    deck: []
+    current_player: nil,
+    middle_cards: [],
+    deck: [],
+    score: %{}
   )
-
-  @type t :: %Game{
-    players:
-  }
 
   @type action :: :lay_card | :select_trump
 
-  def new()
-
-  def 
+  def new(number_players) do
+    %Game{}
+    :ok
+  end
 end
