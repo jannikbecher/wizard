@@ -10,7 +10,7 @@ defmodule WizardGameDeckTest do
 
   test "draw cards" do
     deck = Deck.new()
-    {cards, deck} = Deck.draw(deck, 4)
+    {cards, _deck} = Deck.draw(deck, 4)
     assert length(cards) == 4
   end
 

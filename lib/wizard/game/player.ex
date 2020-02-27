@@ -10,18 +10,18 @@ defmodule Wizard.Game.Player do
     cards: [],
     tricks: [],
     bidding: [],
-    score: [] 
+    score: []
   )
 
-  @type t:: %Player{
-    id: Integer,
-    name: String.t(),
-    state: :waiting | :turn,
-    cards: List,
-    tricks: List,
-    bidding: List,
-    score: List
-  }
+  @type t :: %Player{
+          id: Integer,
+          name: String.t(),
+          state: :waiting | :turn,
+          cards: List,
+          tricks: List,
+          bidding: List,
+          score: List
+        }
 
   def new(id) do
     new(id, "")

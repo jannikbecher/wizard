@@ -25,8 +25,8 @@ defmodule Wizard.Game do
   end
 
   def new(number_players) when is_number(number_players) do
-    players = 
-      for i <- 0..number_players-1 do
+    players =
+      for i <- 0..(number_players - 1) do
         Player.new(i, "Player_" <> to_string(i))
       end
 
@@ -56,7 +56,7 @@ defmodule Wizard.Game do
     round = game.round
     number_players = game.number_players
     {cards, deck} = Deck.draw(game.deck, number_players * round)
-    
+
     player_cards_tuple =
       cards
       |> Enum.chunk_every(round)
@@ -66,31 +66,25 @@ defmodule Wizard.Game do
       for {cards, player} <- player_cards_tuple do
         Player.set_cards(player, cards)
       end
+
     %Game{game | players: players, deck: deck}
   end
 
   def update_current_player(game) do
     last = game.last_started_player
-    if last == game.number_players-1 do
-      %Game{game |
-        current_player: 0,
-        last_started_player: 0
-      }
+
+    if last == game.number_players - 1 do
+      %Game{game | current_player: 0, last_started_player: 0}
     else
-      %Game{game |
-        current_player: last+1,
-        last_started_player: last+1
-      }
+      %Game{game | current_player: last + 1, last_started_player: last + 1}
     end
   end
 
   def draw_new_trump(game) do
     case Deck.draw(game.deck, 1) do
       {trump, deck} ->
-        %Game{game |
-          current_trump: trump,
-          deck: deck
-        }
+        %Game{game | current_trump: trump, deck: deck}
+
       _ ->
         # TODO: last round, there is no trump
         %Game{game | current_trump: Card.fool()}

@@ -8,52 +8,52 @@ defmodule Wizard do
 
   ## Examples
 
-      iex> game = Wizard.new_game(3)
+      iex> _game = Wizard.new_game(3)
       :ok
   """
-  def new_game(number) do
+  def new_game(_number) do
     :ok
   end
 
   @doc """
   Make a move for the current player.
   """
-  def action(game, action) do
+  def action(_game, _action) do
     nil
   end
 
   @doc """
   Returns all legal moves.
   """
-  def get_actions(game) do
+  def get_actions(_game) do
     nil
   end
 
   @doc """
   Returns the hand cards of the given player.
   """
-  def get_player_cards(game, player) do
+  def get_player_cards(_game, _player) do
     nil
   end
 
   @doc """
   Returns the last trick of the game.
   """
-  def get_last_trick(game) do 
+  def get_last_trick(_game) do
     nil
   end
 
   @doc """
   Returns the current player.
   """
-  def get_current_player(game) do
+  def get_current_player(_game) do
     nil
   end
 
   @doc """
   Returns the score of the game.
   """
-  def get_score(game) do
+  def get_score(_game) do
     nil
   end
 end

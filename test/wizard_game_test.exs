@@ -15,18 +15,18 @@ defmodule WizardGameTest do
 
   test "start_next_round functionality" do
     game =
-    Game.new(5)
-    |> Game.start_next_round
-    |> Game.start_next_round
-    |> Game.start_next_round
-    |> Game.start_next_round
-    |> Game.start_next_round
-    |> Game.start_next_round
-    |> Game.start_next_round
-    |> Game.start_next_round
-    |> Game.start_next_round
-    |> Game.start_next_round
-    |> Game.start_next_round
+      Game.new(5)
+      |> Game.start_next_round()
+      |> Game.start_next_round()
+      |> Game.start_next_round()
+      |> Game.start_next_round()
+      |> Game.start_next_round()
+      |> Game.start_next_round()
+      |> Game.start_next_round()
+      |> Game.start_next_round()
+      |> Game.start_next_round()
+      |> Game.start_next_round()
+      |> Game.start_next_round()
 
     assert game.round == 12
     assert hd(game.players).cards |> length == 12
