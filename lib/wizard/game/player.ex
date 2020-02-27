@@ -23,10 +23,12 @@ defmodule Wizard.Game.Player do
           score: List
         }
 
+  @doc false
   def new(id) do
     new(id, "")
   end
 
+  @doc false
   def new(id, name) do
     %Player{
       id: id,
@@ -35,10 +37,12 @@ defmodule Wizard.Game.Player do
     }
   end
 
+  @doc false
   def set_cards(player, cards) do
     %Player{player | cards: cards}
   end
 
+  @doc false
   def end_turn(player) do
     case player.state do
       :turn -> %Player{player | state: :waiting}

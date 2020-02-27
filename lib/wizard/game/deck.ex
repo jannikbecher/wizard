@@ -1,13 +1,13 @@
 defmodule Wizard.Game.Deck do
   @moduledoc false
 
-  alias __MODULE__
   alias Wizard.Game.Card
 
   @colors [:red, :green, :blue, :yellow]
 
-  def new() do
-    (create_normal_cards ++ create_wizard_cards ++ create_fool_cards)
+  @doc false
+  def new do
+    (create_normal_cards() ++ create_wizard_cards() ++ create_fool_cards())
     |> Enum.shuffle()
   end
 
@@ -29,8 +29,10 @@ defmodule Wizard.Game.Deck do
     end
   end
 
+  @doc false
   def draw([]), do: :empty
 
+  @doc false
   def draw(deck, number) when is_list(deck) and number > 0 do
     Enum.split(deck, number)
   end

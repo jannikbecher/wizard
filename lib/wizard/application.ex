@@ -3,6 +3,7 @@ defmodule Wizard.Application do
 
   use Application
 
+  @doc false
   def start(_type, _args) do
     children = [
       {DynamicSupervisor, strategy: :one_for_one, name: Wizard.DynamicSupervisor}

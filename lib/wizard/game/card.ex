@@ -15,6 +15,9 @@ defmodule Wizard.Game.Card do
           color: :red | :green | :blue | :yellow | nil
         }
 
+  @doc false
   def wizard, do: %Card{type: :wizard, value: nil, color: nil}
+
+  @doc false
   def fool, do: %Card{type: :fool, value: nil, color: nil}
 end

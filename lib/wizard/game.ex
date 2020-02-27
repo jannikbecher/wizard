@@ -1,10 +1,8 @@
 defmodule Wizard.Game do
-  @moduledoc """
-  Implements the game logic.
-  """
+  @moduledoc false
 
   alias __MODULE__
-  alias Wizard.Game.{Player, Deck, Card}
+  alias Wizard.Game.{Card, Deck, Player}
 
   defstruct(
     players: [],
@@ -20,10 +18,12 @@ defmodule Wizard.Game do
 
   @type action :: :lay_card | :select_trump
 
+  @doc false
   def new(num) when num < 3 or num > 5 do
     raise "Game is for three to five players only."
   end
 
+  @doc false
   def new(number_players) when is_number(number_players) do
     players =
       for i <- 0..(number_players - 1) do
@@ -37,6 +37,7 @@ defmodule Wizard.Game do
     }
   end
 
+  @doc false
   def start_next_round(game) do
     game
     |> mish_deck
@@ -46,12 +47,15 @@ defmodule Wizard.Game do
     |> draw_new_trump
   end
 
+  @doc false
   def mish_deck(game) do
     %Game{game | deck: Deck.new()}
   end
 
+  @doc false
   defp increase_round(game), do: %Game{game | round: game.round + 1}
 
+  @doc false
   def deal_cards(game) do
     round = game.round
     number_players = game.number_players
@@ -70,6 +74,7 @@ defmodule Wizard.Game do
     %Game{game | players: players, deck: deck}
   end
 
+  @doc false
   def update_current_player(game) do
     last = game.last_started_player
 
@@ -80,13 +85,14 @@ defmodule Wizard.Game do
     end
   end
 
+  @doc false
   def draw_new_trump(game) do
     case Deck.draw(game.deck, 1) do
       {trump, deck} ->
         %Game{game | current_trump: trump, deck: deck}
 
       _ ->
-        # TODO: last round, there is no trump
+        # last game is played as if it was a fool as trump
         %Game{game | current_trump: Card.fool()}
     end
   end
