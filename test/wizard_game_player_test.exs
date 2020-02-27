@@ -4,7 +4,7 @@ defmodule WizardGamePlayerTest do
   alias Wizard.Game.Player
 
   test "create new player" do
-    player = Player.new("Rudolf")
-    assert player.name ==  "Rudolf"
+    player = Player.new(5)
+    assert player.id == 5
   end
 end

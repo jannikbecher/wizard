@@ -4,6 +4,7 @@ defmodule Wizard.Game.Player do
   alias __MODULE__
 
   defstruct(
+    id: -1,
     name: "",
     state: nil,
     cards: [],
@@ -13,6 +14,7 @@ defmodule Wizard.Game.Player do
   )
 
   @type t:: %Player{
+    id: Integer,
     name: String.t(),
     state: :waiting | :turn,
     cards: List,
@@ -21,11 +23,20 @@ defmodule Wizard.Game.Player do
     score: List
   }
 
-  def new(name) do
+  def new(id) do
+    new(id, "")
+  end
+
+  def new(id, name) do
     %Player{
+      id: id,
       name: name,
       state: :waiting
     }
+  end
+
+  def set_cards(player, cards) do
+    %Player{player | cards: cards}
   end
 
   def end_turn(player) do

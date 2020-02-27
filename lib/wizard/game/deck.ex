@@ -19,13 +19,19 @@ defmodule Wizard.Game.Deck do
 
   defp create_wizard_cards do
     for _ <- 1..4 do
-      %Card{type: :wizard, value: nil, color: nil}
+      Card.wizard()
     end
   end
 
   defp create_fool_cards do
     for _ <- 1..4 do
-      %Card{type: :fool, value: nil, color: nil}
+      Card.fool()
     end
+  end
+
+  def draw([]), do: :empty
+
+  def draw(deck, number) when is_list(deck) and number > 0 do
+    Enum.split(deck, number) 
   end
 end
